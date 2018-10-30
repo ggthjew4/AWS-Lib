@@ -8,9 +8,13 @@ Resources:
       Handler: com.serverless.LambdaHandler
       CodeUri: ./target/aws-lib-java-lambda-function.jar
       Runtime: java8
+      Timeout: 300
+      Policies: AWSLambdaFullAccess
       Events:
-        Api:
-          Type: Api
+        UploadFilesEvent:
+          Type: S3
           Properties:
-            Path: /test
-            Method: get
+            Id: !Ref Bucket
+            Events: Create
+  Bucket:
+    Type: AWS::S3::Bucket
