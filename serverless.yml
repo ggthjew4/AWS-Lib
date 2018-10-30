@@ -11,10 +11,8 @@ Resources:
       Timeout: 300
       Policies: AWSLambdaFullAccess
       Events:
-        UploadFilesEvent:
-          Type: S3
+        Api:
+          Type: Api
           Properties:
-            Id: !Ref Bucket
-            Events: Create
-  Bucket:
-    Type: AWS::S3::Bucket
+            Path: /test
+            Method: get
