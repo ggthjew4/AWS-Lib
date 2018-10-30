@@ -1,7 +1,6 @@
-provider:
-  name: aws
-  runtime: java8
-  
+AWSTemplateFormatVersion: 2010-09-09
+Transform: AWS::Serverless-2016-10-31
+
 package:
   artifact: build/distributions/aws-lib-java-lambda-function.zip
 
