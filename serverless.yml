@@ -1,18 +1,18 @@
-service: aws-java-simple-http-endpoint
-
-frameworkVersion: ">=1.2.0 <2.0.0"
-
 provider:
   name: aws
   runtime: java8
   
 package:
-  artifact: build/distributions/aws-java-simple-http-endpoint.zip
+  artifact: build/distributions/aws-lib-java-lambda-function.zip
 
-functions:
-  currentTime:
-    handler: com.serverless.Handler
-    events:
-      - http:
-          path: ping
-          method: get
+Type: AWS::Serverless::Function
+Properties:
+  Handler: com.serverless.LambdaHandler
+  CodeUri: ./build/distributions/aws-lib-java-lambda-function.zip
+  Runtime: java8
+  Events:
+    Api:
+      Type: Api
+      Properties:
+        Path: /test
+        Method: get
