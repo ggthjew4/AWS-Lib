@@ -7,7 +7,7 @@ package:
 Type: AWS::Serverless::Function
 Properties:
   Handler: com.serverless.LambdaHandler
-  CodeUri: ./build/distributions/aws-lib-java-lambda-function.zip
+  CodeUri: ./target/aws-lib-java-lambda-function.jar
   Runtime: java8
   Events:
     Api:
